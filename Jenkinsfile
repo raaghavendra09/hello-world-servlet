@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     tools { 
-        maven 'Maven' 
+        maven 'Maven-3' 
       
     }
 stages { 
@@ -41,7 +41,7 @@ stages {
       archiveArtifacts 'target/*.war'
       }
  }
- stage('Sonarqube') {
+/* stage('sonarqube') {
     environment {
         scannerHome = tool 'sonarqube'
     }
@@ -58,7 +58,7 @@ stages {
       steps {
      nexusPublisher nexusInstanceId: '1234', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/helloworld.war']], mavenCoordinate: [artifactId: 'hello-world-servlet-example', groupId: 'com.geekcap.vmturbo', packaging: 'war', version: '$BUILD_NUMBER']]]
       }
- }
+ } */
 }
 post {
         success {
